@@ -7,7 +7,7 @@ Immerse yourself in the legendary tale of **Arjun aiming for the fish’s eye** 
 ---
 
 ## 🖼️ Preview  
-![Interactive Storytelling Screenshot](./assets/image.png)
+![Interactive Storytelling Screenshot](./assets/Image.png)
 
 ---
 
