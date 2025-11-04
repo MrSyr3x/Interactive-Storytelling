@@ -6,6 +6,16 @@ Immerse yourself in the legendary tale of **Arjun aiming for the fish’s eye** 
 
 ---
 
+## 🖼️ Preview  
+![Interactive Storytelling Screenshot](./assets/image.png)
+
+---
+
+## 🚀 Live Demo  
+📖 **[Read Story](https://mrsyr3x.github.io/Interactive-Storytelling/)**  
+
+---
+
 ## 💡 Highlights
 - 🎨 **Material 3 Design** — soft, fluid layouts with adaptive color theming  
 - 🌹 **Rose Pine Palette** — soothing pastel purples and dusky pinks  
