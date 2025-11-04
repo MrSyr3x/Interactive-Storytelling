@@ -1,0 +1,251 @@
+/*
+ * Rosé Pine Moon + Material 3 + Cascadia Code Aesthetic Style CSS
+ * (Content is unchanged from previous version, retaining the custom look)
+ */
+
+/* Rosé Pine Moon Color Tonal Palette Mapping (Dark Theme) */
+:root {
+    /* Rosé Pine Colors (Moon Variant) */
+    --rp-base: #232136;
+    --rp-surface: #2a273f;
+    --rp-overlay: #393552;
+    --rp-text: #e0def4;
+    --rp-love: #eb6f92;
+    --rp-pine: #3e8fb0;
+    --rp-foam: #9ccfd8;
+    --rp-iris: #c4a7e7;
+    --rp-rose: #ea9a97;
+    --rp-gold: #f6c177;
+
+    /* M3 Color Role Mapping with Rosé Pine */
+    --md-sys-color-primary: var(--rp-iris);             
+    --md-sys-color-on-primary: var(--rp-base);         
+    --md-sys-color-primary-container: var(--rp-overlay);
+    --md-sys-color-on-primary-container: var(--rp-text);
+
+    --md-sys-color-secondary: var(--rp-pine);            
+    --md-sys-color-on-secondary: var(--rp-base);
+    --md-sys-color-secondary-container: var(--rp-overlay);
+    --md-sys-color-on-secondary-container: var(--rp-text);
+
+    --md-sys-color-background: var(--rp-base);           
+    --md-sys-color-surface: var(--rp-surface);           
+    --md-sys-color-on-surface: var(--rp-text);           
+    
+    /* Glow Effect Configuration */
+    --glow-color-soft: rgba(196, 167, 231, 0.4);      
+    --glow-color-vibrant: var(--rp-iris);             
+    --glow-color-choice: rgba(62, 143, 176, 0.4);     
+
+    /* Shape/Corner Radius */
+    --md-sys-shape-corner-large: 16px; 
+    --md-sys-shape-corner-full: 28px; 
+    
+    /* Base Typography and Italic 300 Weight */
+    --font-family-base: 'Cascadia Code', monospace;
+    --font-weight-base: 300;
+    --font-style-base: italic;
+}
+
+/* --- Base Styles --- */
+body {
+    font-family: var(--font-family-base);
+    font-weight: var(--font-weight-base);
+    font-style: var(--font-style-base);
+    
+    background-color: var(--md-sys-color-background); 
+    color: var(--md-sys-color-on-surface);
+    margin: 0;
+    padding: 32px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    line-height: 1.8;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+}
+
+/* --- Typography Mapping --- */
+.display-small {
+    font-size: 3rem;
+    font-weight: 700; 
+    font-style: normal; 
+    color: var(--rp-rose); 
+    text-shadow: 0 0 10px rgba(234, 154, 151, 0.5); 
+    margin: 0 0 8px 0;
+}
+
+.m3-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+/* Aesthetic Header Separator */
+.m3-header::after {
+    content: '~~~ [ D H A R M A ] ~~~'; /* Updated separator text */
+    display: block;
+    color: var(--rp-foam);
+    font-size: 0.9rem;
+    margin-top: 16px;
+    font-style: normal;
+    text-shadow: 0 0 5px var(--rp-foam);
+}
+
+.body-large {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+/* Aesthetic: Styling for BOLD and ITALIC text inside the story */
+.body-large strong {
+    font-weight: 700; 
+    font-style: normal;
+    color: var(--rp-gold); 
+    text-shadow: 0 0 8px rgba(246, 193, 119, 0.6);
+}
+.body-large em {
+    font-weight: 500; 
+    font-style: italic; 
+    color: var(--rp-love); 
+}
+
+/* --- Surface Container (Card) Styling: Glowing Box --- */
+.m3-surface-container {
+    background-color: var(--md-sys-color-surface); 
+    padding: 40px;
+    border-radius: var(--md-sys-shape-corner-large); 
+    
+    /* Glow Effect */
+    box-shadow: 
+        0 0 15px 5px var(--glow-color-soft), 
+        inset 0 0 10px 1px var(--glow-color-soft); 
+    
+    border: 1px solid var(--rp-overlay); 
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+.m3-surface-container:hover {
+    /* Intensify glow on hover */
+    box-shadow: 
+        0 0 20px 8px var(--glow-color-soft),
+        inset 0 0 15px 3px var(--glow-color-soft);
+}
+
+/* --- Buttons (M3 Styles: Filled and Outlined) --- */
+.choices-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; 
+    margin-top: 40px;
+}
+
+.m3-button {
+    font-family: var(--font-family-base);
+    font-size: 1rem;
+    font-weight: 500;
+    font-style: normal; 
+    text-transform: uppercase; 
+    height: 52px; 
+    padding: 0 30px;
+    border: none;
+    border-radius: var(--md-sys-shape-corner-full); 
+    cursor: pointer;
+    transition: all 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px; 
+    letter-spacing: 0.05em;
+}
+
+.button-label {
+    font-weight: 500;
+}
+
+
+/* 1. Filled Button (Primary Action - Choices) */
+.choice-button {
+    background-color: var(--rp-overlay); 
+    color: var(--rp-text); 
+    text-align: left;
+    padding-right: 48px; 
+    justify-content: flex-start; 
+    border: 1px solid var(--rp-iris); 
+    box-shadow: 0 0 5px 1px var(--glow-color-choice); 
+}
+
+.choice-button:hover {
+    background-color: color-mix(in srgb, var(--rp-overlay) 80%, var(--rp-iris));
+    box-shadow: 0 0 15px 3px var(--rp-iris); 
+    transform: translateY(-2px);
+}
+
+/* 2. Outlined Button (Secondary Action - Go Back) */
+.outlined-button {
+    background-color: transparent; 
+    color: var(--md-sys-color-secondary); 
+    border: 1px solid var(--md-sys-color-secondary); 
+    box-shadow: 0 0 5px 1px rgba(62, 143, 176, 0.5); 
+}
+
+.outlined-button:hover {
+    background-color: color-mix(in srgb, var(--rp-base) 90%, var(--md-sys-color-secondary)); 
+    box-shadow: 0 0 10px 2px var(--md-sys-color-secondary);
+}
+
+/* 3. Filled Button (Restart - Tertiary Action) */
+#restart-button {
+    background-color: var(--rp-love); 
+    color: var(--rp-base);
+    box-shadow: 0 0 5px 1px var(--rp-love);
+}
+
+#restart-button:hover {
+    background-color: color-mix(in srgb, var(--rp-love) 90%, white);
+    box-shadow: 0 0 15px 3px var(--rp-love);
+    transform: scale(1.02);
+}
+
+/* --- Navigation Controls --- */
+.navigation-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rp-overlay); 
+}
+
+/* Material Symbols Icon Font Styling */
+.material-symbols-outlined {
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 500, 
+      'GRAD' 0,
+      'opsz' 24;
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+    body {
+        padding: 24px 16px;
+    }
+    .m3-surface-container {
+        padding: 24px;
+    }
+    .display-small {
+        font-size: 2rem;
+    }
+    .navigation-controls {
+        flex-direction: column-reverse; 
+        gap: 16px;
+    }
+    .m3-button {
+        width: 100%;
+        height: 48px;
+    }
+}
