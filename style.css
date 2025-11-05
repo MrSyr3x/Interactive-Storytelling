@@ -1,11 +1,4 @@
-/*
- * Rosé Pine Moon + Material 3 + Cascadia Code Aesthetic Style CSS
- * (Content is unchanged from previous version, retaining the custom look)
- */
-
-/* Rosé Pine Moon Color Tonal Palette Mapping (Dark Theme) */
 :root {
-    /* Rosé Pine Colors (Moon Variant) */
     --rp-base: #232136;
     --rp-surface: #2a273f;
     --rp-overlay: #393552;
@@ -17,7 +10,6 @@
     --rp-rose: #ea9a97;
     --rp-gold: #f6c177;
 
-    /* M3 Color Role Mapping with Rosé Pine */
     --md-sys-color-primary: var(--rp-iris);             
     --md-sys-color-on-primary: var(--rp-base);         
     --md-sys-color-primary-container: var(--rp-overlay);
@@ -32,22 +24,18 @@
     --md-sys-color-surface: var(--rp-surface);           
     --md-sys-color-on-surface: var(--rp-text);           
     
-    /* Glow Effect Configuration */
     --glow-color-soft: rgba(196, 167, 231, 0.4);      
     --glow-color-vibrant: var(--rp-iris);             
     --glow-color-choice: rgba(62, 143, 176, 0.4);     
 
-    /* Shape/Corner Radius */
     --md-sys-shape-corner-large: 16px; 
     --md-sys-shape-corner-full: 28px; 
     
-    /* Base Typography and Italic 300 Weight */
     --font-family-base: 'Cascadia Code', monospace;
     --font-weight-base: 300;
     --font-style-base: italic;
 }
 
-/* --- Base Styles --- */
 body {
     font-family: var(--font-family-base);
     font-weight: var(--font-weight-base);
@@ -68,7 +56,6 @@ body {
     max-width: 800px;
 }
 
-/* --- Typography Mapping --- */
 .display-small {
     font-size: 3rem;
     font-weight: 700; 
@@ -83,9 +70,8 @@ body {
     margin-bottom: 32px;
 }
 
-/* Aesthetic Header Separator */
 .m3-header::after {
-    content: '~~~ [ D H A R M A ] ~~~'; /* Updated separator text */
+    content: '~~~ [ D H A R M A ] ~~~'; 
     display: block;
     color: var(--rp-foam);
     font-size: 0.9rem;
@@ -100,7 +86,6 @@ body {
     line-height: 1.8;
 }
 
-/* Aesthetic: Styling for BOLD and ITALIC text inside the story */
 .body-large strong {
     font-weight: 700; 
     font-style: normal;
@@ -113,13 +98,11 @@ body {
     color: var(--rp-love); 
 }
 
-/* --- Surface Container (Card) Styling: Glowing Box --- */
 .m3-surface-container {
     background-color: var(--md-sys-color-surface); 
     padding: 40px;
     border-radius: var(--md-sys-shape-corner-large); 
     
-    /* Glow Effect */
     box-shadow: 
         0 0 15px 5px var(--glow-color-soft), 
         inset 0 0 10px 1px var(--glow-color-soft); 
@@ -129,13 +112,11 @@ body {
 }
 
 .m3-surface-container:hover {
-    /* Intensify glow on hover */
     box-shadow: 
         0 0 20px 8px var(--glow-color-soft),
         inset 0 0 15px 3px var(--glow-color-soft);
 }
 
-/* --- Buttons (M3 Styles: Filled and Outlined) --- */
 .choices-container {
     display: flex;
     flex-direction: column;
@@ -166,8 +147,6 @@ body {
     font-weight: 500;
 }
 
-
-/* 1. Filled Button (Primary Action - Choices) */
 .choice-button {
     background-color: var(--rp-overlay); 
     color: var(--rp-text); 
@@ -184,7 +163,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* 2. Outlined Button (Secondary Action - Go Back) */
 .outlined-button {
     background-color: transparent; 
     color: var(--md-sys-color-secondary); 
@@ -197,7 +175,6 @@ body {
     box-shadow: 0 0 10px 2px var(--md-sys-color-secondary);
 }
 
-/* 3. Filled Button (Restart - Tertiary Action) */
 #restart-button {
     background-color: var(--rp-love); 
     color: var(--rp-base);
@@ -210,7 +187,6 @@ body {
     transform: scale(1.02);
 }
 
-/* --- Navigation Controls --- */
 .navigation-controls {
     display: flex;
     justify-content: space-between;
@@ -220,7 +196,6 @@ body {
     border-top: 1px solid var(--rp-overlay); 
 }
 
-/* Material Symbols Icon Font Styling */
 .material-symbols-outlined {
     font-variation-settings:
       'FILL' 0,
@@ -229,7 +204,6 @@ body {
       'opsz' 24;
 }
 
-/* Responsive adjustments */
 @media (max-width: 700px) {
     body {
         padding: 24px 16px;

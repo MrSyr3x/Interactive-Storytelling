@@ -1,12 +1,4 @@
-/*
- * JavaScript Logic for Interactive Storytelling
- * Story Title: The Trial of Arjuna's Bow
- * Theme: Indian Mythology / Mahabharata-inspired Quest
- */
-
-// --- 1. Story Data Structure (The Trial of Arjuna's Bow) ---
 const storyData = {
-    // STARTING POINT
     "start": {
         text: "You stand at the edge of the **Royal Arena** of Hastinapur. The challenge is set: String the mighty **Gandiva** (Arjuna's Bow) and strike the eye of a _wooden fish_ revolving high above, visible only by its reflection in the **water pot** below. Two paths lead to the bow:",
         choices: [
@@ -14,8 +6,6 @@ const storyData = {
             { text: "Go straight to the Archery Pavilion (Seek Skill).", next: "path_skill" }
         ]
     },
-
-    // BRANCH 1A: PATH OF DHARMA (WISDOM)
     "path_dharma": {
         text: "The path is quiet. You encounter an _aged Brahmin_ (a sage) who asks, 'What is the purpose of this **Trial**?' You realize he is testing your understanding of **Dharma** (duty).",
         choices: [
@@ -23,7 +13,6 @@ const storyData = {
             { text: "Answer: 'To perform my duty as a warrior, without attachment to the result.' (Right motive)", next: "brahmin_success" }
         ]
     },
-
     "brahmin_success": {
         text: "The Sage smiles, gifting you a **sacred thread** (a focus charm). He warns you of the illusion (**Maya**) that clouds the archer's sight. You continue to the bow.",
         choices: [
@@ -31,8 +20,6 @@ const storyData = {
             { text: "Seek advice from the onlookers at the pavilion first.", next: "ending_distracted" }
         ]
     },
-    
-    // BRANCH 1B: PATH OF SKILL
     "path_skill": {
         text: "You reach the **Archery Pavilion** where the mighty **Gandiva** rests. As you approach, a _jealous rival_ challenges you to a quick, unnecessary duel to test your focus.",
         choices: [
@@ -40,7 +27,6 @@ const storyData = {
             { text: "Politely refuse, stating your focus is only on the main Trial.", next: "duel_success" }
         ]
     },
-
     "duel_fail": {
         text: "You win the duel easily, but the exertion leaves your drawing arm shaking. You have wasted your strength and focus on **Krodha** (anger/jealousy).",
         choices: [
@@ -48,7 +34,6 @@ const storyData = {
             { text: "Sit and meditate briefly to restore focus.", next: "string_bow" }
         ]
     },
-
     "duel_success": {
         text: "You wisely conserve your energy, showing **Samyama** (self-control). The rival is impressed and leaves. You approach the **Gandiva** refreshed and ready.",
         choices: [
@@ -56,8 +41,6 @@ const storyData = {
             { text: "Examine the water pot for any signs of a trap.", next: "ending_cautious" }
         ]
     },
-
-    // BRANCH 2: STRINGING THE BOW
     "string_bow": {
         text: "The **Gandiva** is incredibly heavy. You must now string it. Your previous actions determine your **strength** and **focus**.",
         choices: [
@@ -65,7 +48,6 @@ const storyData = {
             { text: "Focus on your own reflection in the water to gauge your form.", next: "string_fail" }
         ]
     },
-    
     "string_fail": {
         text: "You strain and lose your balance! The bow string slips, snapping back and grazing your drawing arm. You are injured and must withdraw.",
         choices: [
@@ -73,8 +55,6 @@ const storyData = {
             { text: "Try again, ignoring the pain and injury.", next: "ending_hubris" }
         ]
     },
-
-    // BRANCH 3: THE FINAL SHOT
     "focus_test": {
         text: "You successfully string the bow! Now, you draw the arrow. The revolving **wooden fish** is visible only in the water's reflection. The **Ruler** asks, 'What do you see?'",
         choices: [
@@ -82,7 +62,6 @@ const storyData = {
             { text: "Answer: 'I see only the eye of the fish.' (Perfect focus)", next: "shot_success" }
         ]
     },
-    
     "shot_fail": {
         text: "The Ruler sighs, 'Your mind is scattered.' The **arrow misses** the eye and shatters the wooden fish's tail. You have failed the test of focus.",
         choices: [
@@ -90,7 +69,6 @@ const storyData = {
             { text: "Demand a second chance, blaming the light.", next: "ending_hubris" }
         ]
     },
-
     "shot_success": {
         text: "The Ruler nods, 'Then strike!' You release the arrow. It flies with blinding speed, guided by a singular purpose, piercing the eye of the fish!",
         choices: [
@@ -98,8 +76,6 @@ const storyData = {
             { text: "Thank the Sage for the sacred thread and leave silently.", next: "ending_silent_success" }
         ]
     },
-
-    // --- ENDINGS ---
     "ending_brahmin_fail": {
         text: "The Sage shakes his head, saying, 'One who seeks only the fruit of the action is unfit for great duty.' He leads you back to the start. **Status: DHARMA_FAIL_RESTART.**",
         choices: []
@@ -134,8 +110,6 @@ const storyData = {
     },
 };
 
-
-// --- 2. Core Logic and State Management (Unchanged) ---
 let currentSegmentId = 'start';
 let history = []; 
 
@@ -144,10 +118,6 @@ const choicesContainer = document.getElementById('choices-container');
 const goBackButton = document.getElementById('go-back-button');
 const restartButton = document.getElementById('restart-button');
 
-/**
- * Loads and displays a new segment of the story.
- * @param {string} segmentId - The ID of the story segment to load.
- */
 function loadStorySegment(segmentId) {
     const segment = storyData[segmentId];
 
@@ -158,18 +128,14 @@ function loadStorySegment(segmentId) {
         return;
     }
 
-    // Update story text with a smooth transition
     storyTextElement.style.opacity = '0';
     setTimeout(() => { 
-        // Use innerHTML to render bold/italic tags
         storyTextElement.innerHTML = segment.text; 
         storyTextElement.style.opacity = '1';
     }, 200);
 
-    // Clear old choices
     choicesContainer.innerHTML = '';
 
-    // Generate new choice buttons
     segment.choices.forEach(choice => {
         const button = document.createElement('button');
         button.className = 'm3-button filled-button choice-button';
@@ -183,7 +149,6 @@ function loadStorySegment(segmentId) {
         choicesContainer.appendChild(button);
     });
 
-    // Handle endings (segments with no choices)
     if (segment.choices.length === 0) {
         choicesContainer.style.display = 'none';
         goBackButton.style.display = 'none'; 
@@ -192,9 +157,6 @@ function loadStorySegment(segmentId) {
     }
 }
 
-/**
- * Manages the visibility and state of the navigation buttons.
- */
 function updateNavigationButtons() {
     if (history.length > 0 && storyData[currentSegmentId].choices.length > 0) {
         goBackButton.style.display = 'inline-flex'; 
@@ -203,9 +165,6 @@ function updateNavigationButtons() {
     }
 }
 
-/**
- * Event listener for the 'Go Back' button.
- */
 goBackButton.addEventListener('click', () => {
     if (history.length > 0) {
         const prevSegmentId = history.pop();
@@ -215,9 +174,6 @@ goBackButton.addEventListener('click', () => {
     }
 });
 
-/**
- * Event listener for the 'Restart' button.
- */
 restartButton.addEventListener('click', () => {
     history = [];
     currentSegmentId = 'start';
@@ -225,5 +181,4 @@ restartButton.addEventListener('click', () => {
     updateNavigationButtons();
 });
 
-// --- 3. Initialize the Story ---
 loadStorySegment(currentSegmentId);
